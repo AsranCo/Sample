@@ -1,0 +1,15 @@
+2022-08-10 09:59:34,080 INFO Just an information
+Just an information
+2022-08-10 09:59:34,080 WARNING Its a Warning
+Its a Warning
+2022-08-10 09:59:34,080 ERROR Did you try to divide by zero
+Did you try to divide by zero
+2022-08-10 10:00:10,807 ERROR Did you try to divide by zero
+Did you try to divide by zero
+2022-08-10 10:11:38,096 ERROR Did you try to divide by zero
+Did you try to divide by zero
+2022-08-10 10:13:00,011 ERROR Did you try to divide by zero
+2022-08-13 14:15:01,613 ERROR Did you try to divide by zero
+2022-08-13 14:15:02,099 ERROR Did you try to divide by zero
+2022-08-13 14:15:04,504 ERROR Did you try to divide by zero
+2022-08-13 14:15:05,069 ERROR Did you try to divide by zero

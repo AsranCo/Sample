@@ -1,0 +1,61 @@
+body {
+    margin: 1;
+    font-family: consolas;
+    align-content: center;
+    padding: 2%;
+    background-color: #383838;
+}
+
+h1 {
+    background-color: #383838;
+    color: #ffffffdc;
+    padding: 2%;
+}
+
+.center {
+    font-family: cursive;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.center td,
+.center th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.center tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.center tr:nth-child(odd) {
+    background-color: #f2f2f2c7;
+}
+
+.center tr:hover {
+    background-color: #ddd;
+}
+
+.center th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #680101dc;
+    color: white;
+}
+
+.newTask {
+    padding: 2%;
+}
+
+a:link {
+    color: #680101dc;
+}
+
+a:visited {
+    color: #680101dc;
+}
+
+a:hover {
+    color: #383838;
+}

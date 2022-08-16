@@ -1,0 +1,61 @@
+{% extends "about.html" %}
+{% block content %}
+<style type="text/css">
+   .container {
+      font-size: 11px;
+   }
+
+   .form-control {
+      font-size: 15px;
+   }
+</style>
+
+<div class="container">
+   <br>
+   <input class="form-control" id="myInput" type="text" placeholder="Search..">
+   <br>
+   <table id="table_format" class="table table-hover table-sm ">
+      <thead class="thead-light">
+         <tr class="header">
+            <th>SOLTN</th>
+            <th>LGCL_DM_NAME</th>
+            <th>CLIENT</th>
+            <th>SPEC_ID</th>
+            <th>MRT_DATA_PRCS_NAME</th>
+            <th>FREQUENCY</th>
+            <th>UPDATE_FLG</th>
+            <th>REFRESH_SCHED</th>
+         </tr>
+      </thead>
+      <tbody id="myTable">
+         {% for row in rows %}
+         <tr>
+            <td> {{row[0]}} </td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td data-toggle="tooltip" data-placement="bottom" title="SOLTN_PRCS_ID {{row[4]}}">{{row[5]}}</td>
+            <td>{{row[6]}}</td>
+            <td>{{row[7]}}</td>
+            <td>{{row[8]}}</td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+
+<script>
+   $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+         var value = $(this).val().toLowerCase();
+         $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+         });
+      });
+   });
+
+   $('table_format').ddTableFilter();
+
+</script>
+
+{% endblock %}

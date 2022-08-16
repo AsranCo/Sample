@@ -1,0 +1,29 @@
+{% extends "about.html" %}
+{% block content %}
+
+  <div class="container">
+    <h2>Striped Rows</h2>
+    <p>The .table-striped class adds zebra-stripes to a table:</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Pincode</th>
+            </tr>
+        </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td data-toggle="tooltip" data-placement="bottom" title="{{row["addr"]}}">{{row["name"]}}</td>
+          <td>{{row["addr"]}}</td>
+          <td> {{ row["city"]}}</td>
+          <td>{{row['pin']}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

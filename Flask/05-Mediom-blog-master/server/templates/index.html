@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Mediom
+{% endblock %}
+
+{% block content %}
+    <div class=" d-flex flex-column align-items-space-between text-center p-5 h-100">
+        <h4 class="m-2">Hellow there!</h4>
+        <h2 class="m-5">Welcome to our fast growing community <span class="text-danger" >Mediom</span> </h2>
+        <h3> join other <span class="text-warning" >{{userCount}}</span> members and enjoy reading <span class="text-primary">+{{postCount-1}}</span> blog posts! </h3>
+        {% if 'logged_in' in session and session['logged_in'] == True %}
+        <div class="d-flex align-items-center justify-content-center m-2">
+            <form class="m-2" method="GET" action={{url_for('users')}}>
+              <div class="form-col">
+                <button type="submit" class="btn btn-primary mt-2">Goto posts</button>
+              </div>
+            </form>
+        </div>
+        {% else %}
+        <div class="d-flex align-items-center justify-content-center m-2">
+            <form class="m-2" method="GET" action={{url_for('login')}}>
+              <div class="form-col">
+                <button type="submit" class="btn btn-primary mt-2">Login</button>
+              </div>
+            </form>
+            <form method="GET" action={{url_for('signup')}}>
+              <div class="form-col">
+                <button type="submit" class="btn btn-secondary mt-2">Signup</button>
+              </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

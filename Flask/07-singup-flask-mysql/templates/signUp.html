@@ -1,0 +1,164 @@
+
+<!--DOCTYPE html-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Flask jQuery Ajax POST and insert data to Mysql </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function(event) {
+                $('#loading').show();
+                $.ajax({
+                    data : {
+                        name : $('#fullname').val(),
+                        username : $('#username').val(),
+                        password : $('#password').val(),
+                        email : $('#txtmail').val()
+                    },
+                    type : 'POST',
+                    url : '/process'
+                })
+                    .done(function(data) {
+                        if (data.error) {
+                            $('#errorAlert').text(data.error).show();
+                            $('#successAlert').hide();
+                            $('#loading').hide();
+                        }
+                        else {
+                            $('#successAlert').text(data.name).show();
+                            $('#errorAlert').hide();
+                            $('#loading').hide();
+                        }
+
+                    });
+                event.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <p><h1>Python Flask jQuery Ajax POST and insert data to Mysql</h1></p>
+    <div class="col-md-4 col-md-offset-4" id="login">
+        <section id="inner-wrapper" class="login">
+            <article>
+                <form class="form-signin">
+                    <h2 class="form-signin-heading">Please Sign Up </h2>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                            <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Your Name" required autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Your Username" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+                            <input type="email" class="form-control" name="txtmail" id="txtmail" placeholder="Email Address" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key"> </i></span>
+                            <input type="password" class="form-control" name="password" id="password" class="form-control" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Register</button>
+                </form>
+                <br/>
+                <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+                <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+                <h4 id='loading' style="display:none;"><img src="{{ url_for('static', filename='img/loader.gif') }}"/> Loading..</h4>
+
+
+            </article>
+        </section>
+    </div>
+</div>
+<style>
+    body {
+        background:#333;
+    }
+    h1 {color:#fff;}
+    #login {
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        perspective: 1000px;
+        margin-top:50px;
+        margin-left:30%;
+    }
+    .login {
+        font-family: 'Josefin Sans', sans-serif;
+        -webkit-transition: .3s;
+        -moz-transition: .3s;
+        transition: .3s;
+        -webkit-transform: rotateY(40deg);
+        -moz-transform: rotateY(40deg);
+        transform: rotateY(40deg);
+    }
+    .login:hover {
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        transform: rotate(0);
+    }
+    .login .form-group {
+        margin-bottom:17px;
+    }
+    .login .form-control,
+    .login .btn {
+        border-radius:0;
+    }
+    .login .btn {
+        text-transform:uppercase;
+        letter-spacing:3px;
+    }
+    .input-group-addon {
+        border-radius:0;
+        color:#fff;
+        background:#f3aa0c;
+        border:#f3aa0c;
+    }
+    .forgot {
+        font-size:16px;
+    }
+    .forgot a {
+        color:#333;
+    }
+    .forgot a:hover {
+        color:#5cb85c;
+    }
+
+    #inner-wrapper, #contact-us .contact-form, #contact-us .our-address {
+        color: #1d1d1d;
+        font-size: 19px;
+        line-height: 1.7em;
+        font-weight: 300;
+        padding: 50px;
+        background: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        margin-bottom: 100px;
+    }
+    .input-group-addon {
+        border-radius: 0;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        color: #fff;
+        background: #f3aa0c;
+        border: #f3aa0c;
+        border-right-color: rgb(243, 170, 12);
+        border-right-style: none;
+        border-right-width: medium;
+    }
+</style>
+</body>
+</html>

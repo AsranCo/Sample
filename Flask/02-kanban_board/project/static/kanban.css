@@ -1,0 +1,14 @@
+.middle_box {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   height:50vh;
+   width:80vw;
+}
+
+
+#myModal {
+    z-index: 2000;
+}

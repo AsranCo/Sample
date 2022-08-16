@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+  <section class=" m-auto w-25">
+    <form method="POST" action={{url_for('login')}}>
+      <div class="form-col">
+        <div class="row mt-2">
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+        </div>
+        <div class="row mt-2">
+          <input type="password" class="form-control" placeholder="Enter password" name="password">
+        </div>
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+          <p class="text-{{category}}">{{message}}</p>
+          {% if category == 'danger' %}
+            <p class="text-primary">not a user? click to <a class="text-warning" href={{url_for('signup')}} >signup</a>!</p>
+          {% endif %}
+        {% endfor %}
+        <button type="submit" class="btn btn-primary mt-2">Login</button>
+      </div>
+    </form>
+  </section>
+{% endblock %}

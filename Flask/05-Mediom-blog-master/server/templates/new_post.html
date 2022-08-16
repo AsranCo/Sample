@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    New post
+{% endblock %}
+
+{% block content %}
+  <section class=" m-auto w-25">
+    <form method="POST" action={{url_for('new_post')}}>
+      <div class="form-col">
+        <div class="row mt-2">
+          <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+        </div>
+        <div class="row mt-2">
+          <input type="text" class="form-control" id="content" placeholder="Enter content" name="content">
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Post</button>
+      </div>
+    </form>
+  </section>
+{% endblock %}
