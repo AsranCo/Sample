@@ -1,3 +1,21 @@
+# *************************************************
+# def FirstReverse(strParam):
+#     r=""
+#     for i in list(reversed(strParam)):
+#         r += i
+#     return r
+#
+# # keep this function call here
+# print(FirstReverse(input()))
+# ************************************************
+def FirstReverse(str):
+    return str[::-1]
+
+# keep this function call here
+print(FirstReverse(input()))
+# ************************************************
+# ************************************************
+# ************************************************
 # def FirstCount(s):
 #     res = list(map(int, str(s)))
 #     for i in range(len(res)):
