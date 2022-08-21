@@ -1,3 +1,5 @@
+################ insert csv file to sqlite
+
 import csv, sqlite3
 
 con = sqlite3.connect(":memory:")  # change to 'sqlite:///your_filename.db'

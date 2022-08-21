@@ -61,6 +61,3 @@ print(ls[3](4, 5))  # 10.0
 # ******
 
 # ----------------------------------------------------------
-
-# https://quera.org/problemset/2529/
-# https://quera.org/problemset/3408/
