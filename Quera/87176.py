@@ -9,4 +9,4 @@ def game(number):
     return (int(x[-1]) - int(x[0]))
 
 
-print(game(input()))
+# print(game(input()))
