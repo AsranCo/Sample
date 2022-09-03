@@ -7,5 +7,4 @@ def ColHeat(num):
         else:
             print("heater")
 
-
 ColHeat(int(input()))
