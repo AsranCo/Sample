@@ -135,14 +135,17 @@
 # solve("10# + 50 = 10052")
 ###############################################################
 
-def type(x):
-    result = []
-    for f in x:
-        if f.startswith('=') and len(result) != 0:
-            result.pop()
-        else:
-            result.append(f)
-    print(''.join(result))
+# def type(x):
+#     result = []
+#     for f in x:
+#         if f.startswith('=') and len(result) != 0:
+#             result.pop()
+#         else:
+#             result.append(f)
+#     print(''.join(result))
+#
+#
+# type(str(input()))
 
+###############################################################
 
-type(str(input()))
