@@ -120,5 +120,29 @@
 #         return True
 #     else:
 #         return False
+###############################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# import math
+# import re
+#
+#
+# def solve(arr):
+#     list = []
+#     list = (arr.replace('=', "").replace('+', "")).split("  ")
+#     h = list[2]
+#     a = list[0]
+#     b = list[1]
+
+# solve("10# + 50 = 10052")
 ###############################################################
 
+def type(x):
+    result = []
+    for f in x:
+        if f.startswith('=') and len(result) != 0:
+            result.pop()
+        else:
+            result.append(f)
+    print(''.join(result))
+
+
+type(str(input()))
