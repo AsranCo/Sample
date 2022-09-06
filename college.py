@@ -148,4 +148,38 @@
 # type(str(input()))
 
 ###############################################################
-print(*(sorted(x for x in list(map(int, input().split()))[5::6] if x % 6 == 0)))
+
+# m, k = map(int, input().split())
+#
+# for f in range(m):
+#     for b in range(k):
+#         print(f, b)
+
+
+###############################################################
+
+# print(*(sorted(x for x in list(map(int, input().split()))[5::6] if x % 6 == 0)))
+
+###############################################################
+def calc(a):
+    avg, max = 0, 0
+    a = sorted(a)
+    c = len(a)
+    max = a[-1]
+    if len(a) % 2 == 0:
+        median = ((a[int((c / 2) + 1) - 1]) + (a[int((c / 2) - 1)])) / 2
+    else:
+        median = a[int((len(a) + 1) / 2) - 1]
+    for f in range(len(a)):
+        avg += a[f]
+
+    return (avg / c, median, max)
+
+
+print(calc([-1, -100, -20]))
+###############################################################
+
+
+
+
+###############################################################
