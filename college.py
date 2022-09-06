@@ -149,37 +149,72 @@
 
 ###############################################################
 
-# m, k = map(int, input().split())
-#
-# for f in range(m):
-#     for b in range(k):
-#         print(f, b)
 
+def creat_game(m, k, b):
+    map = []
+    for x in range(m):
+        map.append([])
+        for y in range(k):
+            map[x].append(0)
+    for l in b:
+        map[l[0] - 1][l[1] - 1] = "*"
+    return map
+
+
+def show_game(cre):
+    for row in cre:
+        show = ""
+        for col in row:
+            show += str(col) + " "
+        print(show)
+
+
+def calc_mine(m, k, map_game):
+    for i in range(m):
+        for j in range(k):
+            if map_game[i][j] == "*":
+                if j + 1 < k - 1:
+                    map_game[i][j + 1] += 1
+                    if i + 1 < m - 1:
+                        map_game[i + 1][j] += 1
+                print("r= ", i, "co= ", j, "  bo")
+    return map_game
+
+
+m, k = map(int, input().split())
+b = int(input())
+mine_list = []
+for i in range(b):
+    row, col = map(int, input().split())
+    mine_list.append([row, col])
+map_game = creat_game(m, k, mine_list)
+
+final_game = calc_mine(m, k, map_game)
+show_game(final_game)
 
 ###############################################################
+
 
 # print(*(sorted(x for x in list(map(int, input().split()))[5::6] if x % 6 == 0)))
 
 ###############################################################
-def calc(a):
-    avg, max = 0, 0
-    a = sorted(a)
-    c = len(a)
-    max = a[-1]
-    if len(a) % 2 == 0:
-        median = ((a[int((c / 2) + 1) - 1]) + (a[int((c / 2) - 1)])) / 2
-    else:
-        median = a[int((len(a) + 1) / 2) - 1]
-    for f in range(len(a)):
-        avg += a[f]
-
-    return (avg / c, median, max)
-
-
-print(calc([-1, -100, -20]))
+# def calc(a):
+#     avg, max = 0, 0
+#     a = sorted(a)
+#     c = len(a)
+#     max = a[-1]
+#     if len(a) % 2 == 0:
+#         median = ((a[int((c / 2) + 1) - 1]) + (a[int((c / 2) - 1)])) / 2
+#     else:
+#         median = a[int((len(a) + 1) / 2) - 1]
+#     for f in range(len(a)):
+#         avg += a[f]
+#
+#     return (avg / c, median, max)
+#
+#
+# print(calc([-1, -100, -20]))
 ###############################################################
-
-
 
 
 ###############################################################
