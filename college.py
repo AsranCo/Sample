@@ -173,11 +173,16 @@ def calc_mine(m, k, map_game):
     for i in range(m):
         for j in range(k):
             if map_game[i][j] == "*":
-                if j + 1 < k - 1:
-                    map_game[i][j + 1] += 1
-                    if i + 1 < m - 1:
-                        map_game[i + 1][j] += 1
-                print("r= ", i, "co= ", j, "  bo")
+                try:
+                    if j + 1 < k - 1:
+                        map_game[i][j + 1] += 1
+                        if i + 1 < m - 1:
+                            map_game[i + 1][j] += 1
+                except:
+                    pass
+
+                if j != 0 and j - 1 > 0 and map_game[i][j - 1] != "*":
+                    map_game[i][j - 1] += 1
     return map_game
 
 
@@ -191,6 +196,7 @@ map_game = creat_game(m, k, mine_list)
 
 final_game = calc_mine(m, k, map_game)
 show_game(final_game)
+
 
 ###############################################################
 
@@ -209,11 +215,16 @@ show_game(final_game)
 #         median = a[int((len(a) + 1) / 2) - 1]
 #     for f in range(len(a)):
 #         avg += a[f]
-#
-#     return (avg / c, median, max)
-#
-#
-# print(calc([-1, -100, -20]))
+#     # def calc(a):
+#     #     a.sort()
+#     #     if len(a) % 2 == 0:
+#     #         median = (a[int(len(a) / 2)] + a[int(len(a) / 2 - 1)]) / 2
+#     #     else:
+#     #         median = a[int(len(a) / 2)]
+#     #     maximum = max(a)
+#     #     average = sum(a) / len(a)
+#     return (average, median, maximum)
+
 ###############################################################
 
 
