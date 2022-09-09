@@ -101,7 +101,8 @@
 #
 ###############################################################
 # print(str("{:b}".format(int(input()))).count("1"))
-###############################################################
+###############################################################بِسَنج!
+
 
 # import re
 #
@@ -121,18 +122,7 @@
 #     else:
 #         return False
 ###############################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# import math
-# import re
-#
-#
-# def solve(arr):
-#     list = []
-#     list = (arr.replace('=', "").replace('+', "")).split("  ")
-#     h = list[2]
-#     a = list[0]
-#     b = list[1]
 
-# solve("10# + 50 = 10052")
 ###############################################################
 
 # def type(x):
@@ -149,57 +139,79 @@
 
 ###############################################################
 
-
-def creat_game(m, k, b):
-    map = []
-    for x in range(m):
-        map.append([])
-        for y in range(k):
-            map[x].append(0)
-    for l in b:
-        map[l[0] - 1][l[1] - 1] = "*"
-    return map
-
-
-def show_game(cre):
-    for row in cre:
-        show = ""
-        for col in row:
-            show += str(col) + " "
-        print(show)
-
-
-def calc_mine(m, k, map_game):
-    for i in range(m):
-        for j in range(k):
-            if map_game[i][j] == "*":
-                try:
-                    if j + 1 < k - 1:
-                        map_game[i][j + 1] += 1
-                        if i + 1 < m - 1:
-                            map_game[i + 1][j] += 1
-                except:
-                    pass
-
-                if j != 0 and j - 1 > 0 and map_game[i][j - 1] != "*":
-                    map_game[i][j - 1] += 1
-    return map_game
-
-
-m, k = map(int, input().split())
-b = int(input())
-mine_list = []
-for i in range(b):
-    row, col = map(int, input().split())
-    mine_list.append([row, col])
-map_game = creat_game(m, k, mine_list)
-
-final_game = calc_mine(m, k, map_game)
-show_game(final_game)
-
-
+#
+# def creat_game(m, k, b):
+#     map = []
+#     for x in range(m):
+#         map.append([])
+#         for y in range(k):
+#             map[x].append(0)
+#     for l in b:
+#         map[l[0] - 1][l[1] - 1] = "*"
+#     return map
+#
+#
+# def show_game(cre):
+#     for row in cre:
+#         show = ""
+#         for col in row:
+#             show += str(col) + " "
+#         print(show)
+#
+#
+# def calc_mine(m, k, map_game):
+#     for i in range(m):
+#         for j in range(k):
+#             if map_game[i][j] == 0:
+#                 count_bomb = 0
+#                 try:
+#                     if map_game[i][j - 1] == "*" and j != 0: count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i + 1][j - 1] == "*" and not j == 0: count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i + 1][j + 1] == "*": count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i][j + 1] == "*": count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i - 1][j] == "*" and not i == 0: count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i + 1][j] == "*": count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i - 1][j - 1] == "*" and j != 0 and i != 0: count_bomb += 1
+#                 except:
+#                     pass
+#                 try:
+#                     if map_game[i - 1][j + 1] == "*" and not i == 0: count_bomb += 1
+#                 except:
+#                     pass
+#                 map_game[i][j] = count_bomb
+#     return map_game
+#
+#
+# m, k = map(int, input().split())
+# b = int(input())
+# mine_list = []
+# for i in range(b):
+#     row, col = map(int, input().split())
+#     mine_list.append([row, col])
+# map_game = creat_game(m, k, mine_list)
+#
+# final_game = calc_mine(m, k, map_game)
+# show_game(final_game)
+#
 ###############################################################
-
 
 # print(*(sorted(x for x in list(map(int, input().split()))[5::6] if x % 6 == 0)))
 
@@ -227,5 +239,23 @@ show_game(final_game)
 
 ###############################################################
 
+# count_person = int(input())
+# name_dict = {}
+#
+# for i in range(count_person):
+#     name, family = map(str, input().split())
+#     count_name = 1
+#     if name in name_dict:
+#         count_name = name_dict[name] + 1
+#
+#     name_dict[name] = count_name
+# print(max(name_dict.values()))
 
 ###############################################################
+
+def check_registration_rules(**register):
+    for name, password in register.items():
+        print(f'{name} and {password}')
+
+
+check_registration_rules(username='password', sadegh='He3@lsa',alireza='hdkjfhdsj')
