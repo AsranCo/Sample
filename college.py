@@ -252,10 +252,37 @@
 # print(max(name_dict.values()))
 
 ###############################################################
+# ^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$
+# └─────┬────┘└───┬──┘└─────┬─────┘└─────┬─────┘ └───┬───┘
+# │         │         │            │           no _ or . at the end
+# │         │         │            │
+# │         │         │            allowed characters
+# │         │         │
+# │         │         no __ or _. or ._ or .. inside
+# │         │
+# │         no _ or . at the beginning
+# │
+# username is 8-20 characters long
+
+# import re
+
 
 def check_registration_rules(**register):
+    password_regex = r'(?![0-9]+$)[A-Za-z0-9@#$%^&+=]{6,}'  ## not only number(?![0-9]+$) and min len {6,}
+    name_regex = r'[A-Za-z0-9@#$%^&+=]{4,}'
+    dic = []
+
     for name, password in register.items():
-        print(f'{name} and {password}')
+        # if (re.fullmatch(password_regex, password)) and (re.fullmatch(name_regex,
+        #                                                               name)) and (name != "quera") and (
+        #         name != "codecup"):
+        if len(password) >= 6 and len(name) >= 4 and name != "quera" and name != "codecup" and not str(
+                password).isnumeric():
+            dic.append(name)
+    # print(dic)
+    return dic
 
-
-check_registration_rules(username='password', sadegh='He3@lsa',alireza='hdkjfhdsj')
+# check_registration_rules(quera='qwerty80', mmdre/za='monday80', ali="aliali@", mammad="salam", saeed='1234567',
+#                          ab='afj$L12', odecup='1234d56', sadegh='He3@lsa', alireza='ali669', username='password',
+#                          sadeegh='He3@lsa')
+# check_registration_rules(username='9798749374', sadegh='He3@lsa')
