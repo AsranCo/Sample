@@ -286,3 +286,15 @@
 #                          ab='afj$L12', odecup='1234d56', sadegh='He3@lsa', alireza='ali669', username='password',
 #                          sadeegh='He3@lsa')
 ###############################################################
+
+
+###############################################################
+
+
+def div(n):
+    yield n // 1
+    yield n // 2
+    yield n // 3
+
+
+print(list(div(6)))
