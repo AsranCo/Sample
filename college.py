@@ -122,6 +122,22 @@
 #     else:
 #         return False
 ###############################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+import re
+
+
+def solve(arr):
+    if re.search('(\d+)#(\d+)', arr):
+        x = re.sub('(\d+)#(\d+)', "x", arr)
+        print(x)
+    elif re.search('#(\d+)', arr):
+        x = re.sub('#(\d+)', "x", arr)
+        print(x)
+    else:
+        x = re.sub('(\d+)#', "x", arr)
+        print(x)
+
+
+solve("10# + 50 = 10052")
 
 ###############################################################
 
@@ -286,15 +302,52 @@
 #                          ab='afj$L12', odecup='1234d56', sadegh='He3@lsa', alireza='ali669', username='password',
 #                          sadeegh='He3@lsa')
 ###############################################################
+# all_users = {}
+# all_albums = {}
+#
+#
+# def add_user(username, age, city, albums, all_users, all_albums):
+#     pass
+#
+#
+# def add_album(name, artist_name, genre, tracks, all_users, all_albums):
+#     pass
+#
+#
+# def query_user_artist(username, artist_name, all_users, all_albums):
+#     pass
+#
+#
+# def query_user_genre(username, genre, all_users, all_albums):
+#     pass
+#
+#
+# def query_age_artist(age, artist_name, all_users, all_albums):
+#     pass
+#
+#
+# def query_age_genre(age, genre, all_users, all_albums):
+#     pass
+#
+#
+# def query_city_artist(city, artist_name, all_users, all_albums):
+#     pass
+#
+#
+# def query_city_genre(city, genre, all_users, all_albums):
+#     pass
+#
+#
+# add_user("SAliB", 19, "Tehran", ["tekunbede", "barf", "gavazn"], all_users, all_albums)
+
+###############################################################
+# def div(n):
+#     yield n // 1
+#     yield n // 2
+#     yield n // 3
+#
+#
+# print(list(div(6)))
 
 
 ###############################################################
-
-
-def div(n):
-    yield n // 1
-    yield n // 2
-    yield n // 3
-
-
-print(list(div(6)))
