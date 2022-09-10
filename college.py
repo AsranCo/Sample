@@ -151,17 +151,20 @@ def solve(arr):
         y = int(eq) - int(s1)
     step = (z.find("#")) + 1
     resu = ""
-    for i in range(y):
-        if str(y) == (z.replace("#", str(i).zfill(step))):
-            return (x.replace("x", str(z.replace("#", str(i).zfill(step)))))
 
-        else:
-            resu = "-1"
-    if resu == "-1":
-        return '-1'
+    for i in range(step + 2):
+        for num in range(y + 1):
+            x1 = (z.replace("#", ('{:0{}d}'.format(num, i))))
+            if str(y) == x1:
+                resu = (x.replace("x", str(x1)))
+
+    if resu != "":
+        return (resu)
+    else:
+        return ("-1")
 
 
-solve("10# + 50 = 10052")
+print(solve("15 + 1#2 = 136"))
 
 ###############################################################
 
@@ -365,13 +368,13 @@ solve("10# + 50 = 10052")
 # add_user("SAliB", 19, "Tehran", ["tekunbede", "barf", "gavazn"], all_users, all_albums)
 
 ###############################################################
-# def div(n):
-#     yield n // 1
-#     yield n // 2
-#     yield n // 3
+# def divs(n):
+#     for i in range(1, n + 1):
+#         if n % i == 0:
+#             yield i
 #
 #
-# print(list(div(6)))
+# print(list(divs(15)))
 
 
 ###############################################################
