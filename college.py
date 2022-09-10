@@ -126,15 +126,39 @@ import re
 
 
 def solve(arr):
+    global y
     if re.search('(\d+)#(\d+)', arr):
+        z = re.search('(\d+)#(\d+)', arr)[0]
         x = re.sub('(\d+)#(\d+)', "x", arr)
-        print(x)
     elif re.search('#(\d+)', arr):
+        z = (re.search('#(\d+)', arr)[0])
         x = re.sub('#(\d+)', "x", arr)
-        print(x)
     else:
+        z = (re.search('(\d+)#', arr)[0])
         x = re.sub('(\d+)#', "x", arr)
-        print(x)
+
+    eq = x.split("=")[-1].replace(" ", "")
+    s1 = x.split("+")[0].replace(" ", "")
+    s2 = x.split("+")[1].split("=")[0].replace(" ", "")
+
+    if eq == "x":
+        y = int(s1) + int(s2)
+
+    elif s1 == "x":
+        y = int(eq) - int(s2)
+
+    elif s2 == "x":
+        y = int(eq) - int(s1)
+    step = (z.find("#")) + 1
+    resu = ""
+    for i in range(y):
+        if str(y) == (z.replace("#", str(i).zfill(step))):
+            return (x.replace("x", str(z.replace("#", str(i).zfill(step)))))
+
+        else:
+            resu = "-1"
+    if resu == "-1":
+        return '-1'
 
 
 solve("10# + 50 = 10052")
