@@ -123,8 +123,6 @@
 #         return False
 ###############################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # import re
-#
-#
 # def solve(arr):
 #     global y
 #     if re.search('(\d+)#(\d+)', arr):
@@ -133,9 +131,12 @@
 #     elif re.search('#(\d+)', arr):
 #         z = (re.search('#(\d+)', arr)[0])
 #         x = re.sub('#(\d+)', "x", arr)
-#     else:
+#     elif (re.search('(\d+)#', arr)):
 #         z = (re.search('(\d+)#', arr)[0])
 #         x = re.sub('(\d+)#', "x", arr)
+#     else:
+#         z = (re.search('#', arr)[0])
+#         x = re.sub('#', "x", arr)
 #
 #     eq = x.split("=")[-1].replace(" ", "")
 #     s1 = x.split("+")[0].replace(" ", "")
@@ -152,19 +153,36 @@
 #     step = (z.find("#")) + 1
 #     resu = ""
 #
-#     for i in range(step + 2):
-#         for num in range(y + 1):
-#             x1 = (z.replace("#", ('{:0{}d}'.format(num, i))))
-#             if str(y) == x1:
-#                 resu = (x.replace("x", str(x1)))
+#     for i in range(y + 2):
+#
+#         # for num in range(y + 1):
+#         x1 = (z.replace("#", ('{:0{}d}'.format(i, 4))))
+#         if str(y) == x1:
+#             resu = (x.replace("x", str(x1)))
+#             break
 #
 #     if resu != "":
 #         return (resu)
 #     else:
 #         return ("-1")
+# ------------------------------------
+# def solve(string):
+#     import re
+#     x = re.findall('[0-9]*#[0-9]*', string)[0]
+#     regex = '^' + x.replace('#', '.*') + '$'
+#     new_string = string.replace(x, '')
+#     a, b = int(re.findall('[0-9]+', new_string)[0]), int(re.findall('[0-9]+', new_string)[1])
+#     number1 = b - a
+#     number2 = a + b
+#     if re.match(r'.+=\s?[0-9]+$', new_string) and re.match(regex, str(number1)):
+#         return re.sub('[0-9]*#[0-9]*', str(number1), string)
+#     elif re.match(r'.+=\s?$', new_string) and re.match(regex, str(number2)):
+#         return re.sub('[0-9]*#[0-9]*', str(number2), string)
+#     else:
+#         return '-1'
 #
 #
-# print(solve("15 + 1236 = 1#1"))
+# print(solve("40838457 + 52979783 = #"))
 
 ###############################################################
 
@@ -378,21 +396,24 @@
 
 
 ###############################################################
-def solve(path):
-    f = open(path, "r")
-    lines = []
-    count = 0
-    while True:
-        line = f.readline()
-        if line == '':
-            break  # end of file
-        lines.append(line)
-    for line in lines:
-
-        count += 1
-        if line.startswith("#") or line.startswith(" ") or line.isspace():
-            count -= 1
-    return count
-
-
-print(solve("./text.info"))
+# def solve(path):
+#     lines = []
+#     count = 0
+#
+#     with open(path, "r") as f:  # after read file -> close file!
+#         while True:
+#             line = f.readline()
+#             if line == '':
+#                 break  # end of file
+#             lines.append(line)
+#
+#     for line in lines:
+#
+#         count += 1
+#         if line.startswith("#") or line.startswith(" ") or line.isspace():
+#             count -= 1
+#     return count
+#
+#
+# print(solve("./text.info"))
+###############################################################
