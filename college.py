@@ -122,49 +122,49 @@
 #     else:
 #         return False
 ###############################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-import re
-
-
-def solve(arr):
-    global y
-    if re.search('(\d+)#(\d+)', arr):
-        z = re.search('(\d+)#(\d+)', arr)[0]
-        x = re.sub('(\d+)#(\d+)', "x", arr)
-    elif re.search('#(\d+)', arr):
-        z = (re.search('#(\d+)', arr)[0])
-        x = re.sub('#(\d+)', "x", arr)
-    else:
-        z = (re.search('(\d+)#', arr)[0])
-        x = re.sub('(\d+)#', "x", arr)
-
-    eq = x.split("=")[-1].replace(" ", "")
-    s1 = x.split("+")[0].replace(" ", "")
-    s2 = x.split("+")[1].split("=")[0].replace(" ", "")
-
-    if eq == "x":
-        y = int(s1) + int(s2)
-
-    elif s1 == "x":
-        y = int(eq) - int(s2)
-
-    elif s2 == "x":
-        y = int(eq) - int(s1)
-    step = (z.find("#")) + 1
-    resu = ""
-
-    for i in range(step + 2):
-        for num in range(y + 1):
-            x1 = (z.replace("#", ('{:0{}d}'.format(num, i))))
-            if str(y) == x1:
-                resu = (x.replace("x", str(x1)))
-
-    if resu != "":
-        return (resu)
-    else:
-        return ("-1")
-
-
-print(solve("15 + 1#2 = 136"))
+# import re
+#
+#
+# def solve(arr):
+#     global y
+#     if re.search('(\d+)#(\d+)', arr):
+#         z = re.search('(\d+)#(\d+)', arr)[0]
+#         x = re.sub('(\d+)#(\d+)', "x", arr)
+#     elif re.search('#(\d+)', arr):
+#         z = (re.search('#(\d+)', arr)[0])
+#         x = re.sub('#(\d+)', "x", arr)
+#     else:
+#         z = (re.search('(\d+)#', arr)[0])
+#         x = re.sub('(\d+)#', "x", arr)
+#
+#     eq = x.split("=")[-1].replace(" ", "")
+#     s1 = x.split("+")[0].replace(" ", "")
+#     s2 = x.split("+")[1].split("=")[0].replace(" ", "")
+#
+#     if eq == "x":
+#         y = int(s1) + int(s2)
+#
+#     elif s1 == "x":
+#         y = int(eq) - int(s2)
+#
+#     elif s2 == "x":
+#         y = int(eq) - int(s1)
+#     step = (z.find("#")) + 1
+#     resu = ""
+#
+#     for i in range(step + 2):
+#         for num in range(y + 1):
+#             x1 = (z.replace("#", ('{:0{}d}'.format(num, i))))
+#             if str(y) == x1:
+#                 resu = (x.replace("x", str(x1)))
+#
+#     if resu != "":
+#         return (resu)
+#     else:
+#         return ("-1")
+#
+#
+# print(solve("15 + 1236 = 1#1"))
 
 ###############################################################
 
@@ -378,3 +378,21 @@ print(solve("15 + 1#2 = 136"))
 
 
 ###############################################################
+def solve(path):
+    f = open(path, "r")
+    lines = []
+    count = 0
+    while True:
+        line = f.readline()
+        if line == '':
+            break  # end of file
+        lines.append(line)
+    for line in lines:
+
+        count += 1
+        if line.startswith("#") or line.startswith(" ") or line.isspace():
+            count -= 1
+    return count
+
+
+print(solve("./text.info"))
