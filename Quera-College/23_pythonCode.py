@@ -18,4 +18,4 @@ def solve(path):
     return count
 
 
-print(solve("Quera-College/text.info"))
+print(solve("./text.info"))
