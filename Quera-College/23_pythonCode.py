@@ -16,11 +16,20 @@ def solve(path):
 
     for line in lines:
         line = line.strip()
-        line = re.sub(r"^\s+|\s+$", "", line)
-        if not line.startswith("#"):
-            count += 1
         print(line)
+        if re.match(r'^#', line) or re.match(r'^\s*$', line):
+            pass
+        else:
+            print("!!!!")
+            count += 1
     return count
+    # for line in lines:
+    #     line = line.strip()
+    #     line = re.sub(r"^\s+|\s+$", "", line)
+    #     if not line.startswith("#"):
+    #         count += 1
+    #     print(line)
+    # return count
 
 
 print(solve("./text.info"))
