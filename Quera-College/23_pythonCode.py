@@ -1,4 +1,7 @@
 ##سوال کد پایتون
+import re
+
+
 def solve(path):
     lines = []
     count = 0
@@ -13,8 +16,10 @@ def solve(path):
 
     for line in lines:
         line = line.strip()
+        line = re.sub(r"^\s+|\s+$", "", line)
         if not line.startswith("#"):
             count += 1
+        print(line)
     return count
 
 
