@@ -14,7 +14,7 @@ def media(src, dst):
         print(filename)
 
         if any([filename.lower().endswith(tuple(image)) for filename in filename]):
-            print("Last modified: %s" % (datetime.datetime.fromtimestamp(os.path.getctime())).strftime("%Y"))
+            print("Last modified: %s" % (datetime.datetime.fromtimestamp(os.path.getctime(src))).strftime("%Y"))
 
 
 #     file_dict = {}
