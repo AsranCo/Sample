@@ -19,4 +19,4 @@ def explore(ttype, address):
     return (file_dict)
 
 
-print(explore("xml", "/home/ali/snap"))
+print(explore("xMl", "/home/ali/snap"))
