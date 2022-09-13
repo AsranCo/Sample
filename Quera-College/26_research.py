@@ -8,7 +8,7 @@ def explore(ttype, address):
     for root, dirs, files in os.walk(address):
         count = 1
         for file in files:
-            if file.endswith(ttype.lower()):
+            if file.lower().endswith(ttype.lower()):
                 path = os.path.join(root)
                 if path in file_dict:
                     count = file_dict[path] + 1
@@ -19,4 +19,4 @@ def explore(ttype, address):
     return (file_dict)
 
 
-explore("csv", "/home/pc/snap")
+print(explore("xml", "/home/ali/snap"))
