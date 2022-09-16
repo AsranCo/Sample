@@ -1,4 +1,6 @@
 import os
+
+
 def combet(typ1, typ2, path):
     files = list()
 
@@ -14,7 +16,6 @@ def combet(typ1, typ2, path):
     if len(sajjad_ext) > len(salib_ext):
         return 'Win! Normally!'
 
-
     names = list(map(lambda a: a.split(".")[0],
                      filter(lambda x: not x.endswith(typ1) and not x.endswith(typ2), files)))
     for i in names:
@@ -22,15 +23,7 @@ def combet(typ1, typ2, path):
             return f"Win! you can win if you cheat on '{i}'!"
     return "Lose! you can't win this game!"
     K = list(map(lambda a: a.split(".")[0],
-                 filter(lambda x:  x.endswith(Y) , files)))
+                 filter(lambda x: x.endswith(Y), files)))
     for i in K:
-        if 2* K.count(i) > (len(salib_ext)- len(sajjad_ext)):
+        if 2 * K.count(i) > (len(salib_ext) - len(sajjad_ext)):
             return (f"Win! you can win if you cheat on '{i}'!")
-
-
-
-
-
-
-
-
