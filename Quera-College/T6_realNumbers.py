@@ -1,6 +1,4 @@
-
 import re
-
 
 def real_numbers(numbers):
     regex = '^\s*[+-]?(\d+(.\d+)?)([eE][+-]?\d+)?\s*$'
