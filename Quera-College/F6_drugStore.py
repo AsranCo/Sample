@@ -29,7 +29,7 @@ class Pharmacy:
             "age": age
         })
 
-#--------------------------todo use enumerate !!!
+#--------------------------todo: use enumerate !!!
     def employees_summary(self):
         x = "Employees:\n"
         for i, emp in enumerate(self.employees):
