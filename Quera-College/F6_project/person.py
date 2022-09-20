@@ -5,10 +5,16 @@ class Person:
     instances = []
 
     def __init__(self, name, age):
-        pass
+        self.name = name
+        self.age = age
+        self.level = 1
+        self.job = ""
+        self.work_place = None
+        self.instances.append(self)
 
     def do_level(self, income):
-        pass
+        x = income * math.sqrt((self.level * self.work_place.level))
+        return x
 
     def calc_income(self):
         pass
@@ -17,14 +23,20 @@ class Person:
         pass
 
     def calc(self):
-        pass
+        income = self.calc_income()
+        cost = self.calc_life_cost()
+        return self.do_level(income) - cost
 
     def get_job(self):
-        pass
+        return self.job
 
     def upgrade(self):
-        pass
+        self.level += 1
 
     @staticmethod
     def calc_all():
-        pass
+        total = None
+        for instance in Person.instances:
+            total += instance.calc()
+
+        return total
