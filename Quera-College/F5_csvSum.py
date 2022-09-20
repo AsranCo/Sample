@@ -3,7 +3,7 @@
 def csv_reader(path):
     import csv
     rows = []
-    with open(path, "r+") as file, open("./file/ans.csv", 'w') as writeFile:
+    with open(path, "r+") as file, open("file/ans.csv", 'w') as writeFile:
         write = csv.writer(writeFile)
         csvreader = csv.reader(file)
         for row in csvreader:
@@ -40,4 +40,4 @@ def csv_reader(path):
 #             ans.write(a_line + '\n')
 
 
-csv_reader("./file/file.csv")
+csv_reader("file/file.csv")

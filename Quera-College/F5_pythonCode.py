@@ -13,7 +13,7 @@ def solve(path):
     return count
 
 
-print(solve("./file/text.info"))
+print(solve("file/text.info"))
 
 # ------------------------------------------ todo پاسخ دیگران
 
