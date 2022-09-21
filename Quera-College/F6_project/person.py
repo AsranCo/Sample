@@ -35,7 +35,7 @@ class Person:
 
     @staticmethod
     def calc_all():
-        total = None
+        total = 0
         for instance in Person.instances:
             total += instance.calc()
 

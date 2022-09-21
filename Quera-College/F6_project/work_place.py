@@ -1,34 +1,51 @@
-class WorkPlaceIsFull(...):
-    pass
+class WorkPlaceIsFull(Exception):
+    def __str__(self):
+        return "work place is full!"
 
 
 class Consts:
-    pass
+    BASE_PRICE = {'mine': 150, 'school': 100, 'company': 90}
 
 
 class WorkPlace:
+    instances = []
 
     def __init__(self, name):
-        pass
+        self.name = name
+        self.level = 1
+        self.expertise = ""
+        self.employees = list()
+        self.capacity = 1
+        self.instances.append(self)
 
     def get_price(self):
-        pass
+        return Consts.BASE_PRICE[self.expertise]
 
     def calc_costs(self):
         pass
 
-    def upgrade(self):
+    def calc_capacity(self):
         pass
+
+    def upgrade(self):
+        self.calc_capacity()
+        self.level += 1
 
     def hire(self, person):
-        pass
-
+        if len(self.employees) >= self.capacity:
+            raise WorkPlaceIsFull()
+        else:
+            person.work_place = self
+            self.employees.append(person)
     def get_expertise(self):
-        pass
+        return self.expertise
 
     def calc(self):
-        pass
+        return (self.calc_costs()) * -1
 
     @staticmethod
     def calc_all():
-        pass
+        total = 0
+        for instance in WorkPlace.instances:
+            total += instance.calc()
+        return total
