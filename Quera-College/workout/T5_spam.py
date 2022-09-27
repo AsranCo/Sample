@@ -19,10 +19,7 @@ def spam(num, content):
 
 # -------------------------------------------------------------
 
-# n = input()
-# c = input()
-# spam(n, c)
-#
+
 #
 # def countInvalidChar(content):
 #     count = 0
@@ -49,4 +46,3 @@ def spam(num, content):
 #
 # else:
 #     print('Not Spam')
-#

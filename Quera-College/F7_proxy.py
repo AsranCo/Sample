@@ -12,7 +12,6 @@ class Proxy:
         pass
 
 
-
 class Radio():
     def __init__(self):
         self._channel = None
@@ -27,24 +26,3 @@ class Radio():
 
     def power(self):
         self.is_on = not self.is_on
-
-
-    #     class Second:
-    #
-    # def __init__(self, x):
-    #     self.x = x
-    #
-    # @property
-    # def x(self):
-    #     print("---> getter <---")
-    #     return self.__x
-    #
-    # @x.setter
-    # def x(self, x):
-    #     print("---> setter <---")
-    #     if x < 0:
-    #         self.__x = 0
-    #     elif x > 1000:
-    #         self.__x = 1000
-    #     else:
-    #         self.__x = x

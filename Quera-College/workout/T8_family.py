@@ -2,7 +2,15 @@ import csv
 
 
 def ready_up():
-    pass
+    import csv
+    rows = []
+    path = "../file/esm_famil_data.csv"
+    with open(path, "r+") as file:
+        csvreader = csv.reader(file)
+        for row in csvreader:
+            rows.append(row)
+
+    print(rows)
 
 
 def add_participant(participant, answers):
@@ -11,4 +19,3 @@ def add_participant(participant, answers):
 
 def calculate_all():
     pass
-
