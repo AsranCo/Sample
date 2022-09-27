@@ -21,3 +21,17 @@ def explore(ttype, address):
 
 
 print(explore("xMl", "/home/ali/snap"))
+# --------------------------------------------------------------todo پاسخ دیگران
+# import os
+#
+# def explore(extension, addr):
+#     result = dict()
+#     for obj in os.walk(addr):
+#         for name in obj[2]:
+#             if "." in name and name.split('.')[-1].lower() == extension.lower():
+#                 try:
+#                     result[obj[0]] += 1
+#                 except KeyError:
+
+#                     result[obj[0]] = 1
+#     return result

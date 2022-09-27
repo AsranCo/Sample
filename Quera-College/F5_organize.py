@@ -45,49 +45,43 @@ def media(src, dst):
 media(sys.argv[1], sys.argv[2])
 
 #--------------------------------------- todo پاسخ دیکران
-# import sys
 # import os
+# import sys
+# import re
 # import time
 #
-# videoFormats = (".mp4", ".avi", ".3gp", ".mpeg", ".mkv", ".wmv", ".mov")
-# imageFormats = (".jpg", ".jpeg", ".png")
+#
+# inputs = sys.argv
+# src = inputs[1]
+# dist = inputs[2]
+# if not(os.path.isdir(dist)):
+#     os.mkdir(dist)
+#
+# docs = os.walk(src)
+#
+# def makeDist(fileType, year , fileName):
+#     fileAddr = os.path.join(dist, year)
+#     if not(os.path.isdir(fileAddr)):
+#         os.mkdir(fileAddr)
+#     fileAddr = os.path.join(dist, year, fileType)
+#     if not(os.path.isdir(fileAddr)):
+#         os.mkdir(fileAddr)
+#     fileAddr = os.path.join(dist, year, fileType , fileName)
+#     return fileAddr
 #
 #
-# def isVideo(file):
-#     return file.lower().endswith(videoFormats)
-#
-# def isImage(file):
-#     return file.lower().endswith(imageFormats)
-#
-# def makeDir(path):
-#     if not os.path.isdir(path):
-#         os.mkdir(path)
-#
-# def copy_file(file_address, file, path):
-#     with open(file_address, 'rb') as src:
-#         data = src.read()
-#         with open(os.path.join(path, file), 'wb') as dst:
-#             dst.write(data)
-#
-# def organize():
-#     origin, destination = sys.argv[1], sys.argv[2]
-#     makeDir(destination)
-#
-#     for dirpath,_,files in os.walk(origin):
-#         for file in files:
-#             file_address = os.path.join(dirpath, file)
-#             seconds = os.path.getmtime(file_address)
-#             year = time.ctime(seconds)[-4:]
-#
-#             if isVideo(file):
-#                 print(os.path.join(destination, year, 'videos', file))
-#                 makeDir(os.path.join(destination, year))
-#                 makeDir(os.path.join(destination, year, 'videos'))
-#                 copy_file(file_address, file, os.path.join(destination, year, "videos"))
-#             elif isImage(file):
-#                 print(os.path.join(destination, year, 'photos', file))
-#                 makeDir(os.path.join(destination, year))
-#                 makeDir(os.path.join(destination, year, 'photos'))
-#                 copy_file(file_address, file, os.path.join(destination, year, "photos"))
-#
-# organize()
+# for root, dirs, files in docs:
+#     for fileName in files:
+#         fileType = ""
+#         if bool(re.match(".+\.(jpg|jpeg|png)$", fileName.lower())):
+#             fileType = "photos"
+#         elif bool(re.match(".+\.(mp4|avi|3gp|mpeg|mkv|wmv|mov)$", fileName.lower())):
+#             fileType = "videos"
+#         else:
+#             continue
+#         fileAddr = os.path.join(root, fileName)
+#         year = time.ctime(os.path.getmtime(fileAddr)).split()[-1]
+#         with open(fileAddr, 'rb') as src:
+#             data = src.read()
+#             with open(makeDist(fileType,year,fileName), 'wb') as dst:
+#                 dst.write(data)

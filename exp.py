@@ -1,12 +1,24 @@
+import requests
+
+
 def process(url):
     response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        if len(data) == 0:
-            return 'I can\'t recognize it'
-        if all(data[0]['category'] == i['category'] for i in data):
-            return data[0]['category']
-        else:
-            return 'I can\'t recognize it'
-    else:
+
+    if (response.status_code != 200):
         return 'Bad Query'
+
+    books = response.json()
+
+    categories = list()
+    for book in books:
+        category = book['category']
+        if category not in categories:
+            categories.append(category)
+
+    if len(categories) == 1:
+        return categories[0]
+
+    return "I can't recognize it"
+
+
+print(process("https://mocki.io/v1/627ba115-0fdf-484e-8c98-fdc5a75d2a83"))

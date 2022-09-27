@@ -53,6 +53,8 @@ def process(url):
 
 
 # ----------------------------------------------------------
+# import requests
+#
 # def process(url):
 #     response = requests.get(url)
 #     if response.status_code == 200:
