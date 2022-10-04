@@ -1,5 +1,5 @@
 n = int(input())
-x = map(int, input().split(maxsplit=n - 1))
+x = map(int, input().split(maxsplit=n))
 x = list(x)
 max_value = sorted(x)[-1]
 print(x.index(max_value) + 1)
