@@ -1,32 +1,52 @@
-# todo: ^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$
-# └─────┬────┘└───┬──┘└─────┬─────┘└─────┬─────┘ └───┬───┘
-# │         │         │            │           no _ or . at the end
-# │         │         │            │
-# │         │         │            allowed characters
-# │         │         │
-# │         │         no __ or _. or ._ or .. inside
-# │         │
-# │         no _ or . at the beginning
-# │
-# username is 8-20 characters long
 import re
 
 
 def spam(num, content):
-    # regex = r'^(?:09|\+989|00989)?(\d{9})$'
-    # regex='[\w]'
-    regex = r'\w \b[A-Za-z._]+@[A-Za-z]+\.[A-Za-z]{3}\b'
-    #
-    if not num.isnumeric() and (not re.match(regex, content) and not re.findall('spam', content.lower())):
+    regex = '[^a-zA-Z\d\s:]'
+    x = re.sub(regex, '', content)
+    print(len(x))
+    print(len(content))
+    print(bool(re.findall('spam', content.lower())))
+    if not num.isnumeric() and not ((len(x) < (len(content) / 2)) and re.findall('spam', content.lower())):
         print("Not Spam")
-    elif not num.isnumeric() and (re.match(regex, content) or re.findall('spam', content.lower())):
+    elif not num.isnumeric() and (len(x) < (len(content) / 2)) and re.findall('spam', content.lower()):
         print("Invalid Content")
-    elif num.isnumeric() and not re.match(regex, content) and not re.findall('spam', content.lower()):
+    elif num.isnumeric() and not ((len(x) < (len(content) / 2)) and re.findall('spam', content.lower())):
         print("Invalid Sender")
-    elif num.isnumeric() and (re.match(regex, content) and re.findall('spam', content.lower())):
+    elif num.isnumeric() and (re.match(regex, content) or re.findall('spam', content.lower())):
         print("Fully Invalid")
-    elif not num.isnumeric() and (re.match(regex, content) and re.findall('spam', content.lower())):
-        print("Invalid Content")
-n = input()
-c = input()
-spam(n, c)
+
+
+# -------------------------------------------------------------
+
+# n = input()
+# c = input()
+# spam(n, c)
+#
+#
+# def countInvalidChar(content):
+#     count = 0
+#     for c in content:
+#         if not c.isalnum() and c != ' ':
+#             count += 1
+#     return count
+#
+#
+# user = input()
+# content = input()
+#
+# isInvalidSender = user.isdigit()
+# isInvalidContent = countInvalidChar(content) > (len(content) / 2) and 'spam' in content.lower()
+#
+# if isInvalidContent and isInvalidSender:
+#     print('Fully Invalid')
+#
+# elif isInvalidContent:
+#     print('Invalid Content')
+#
+# elif isInvalidSender:
+#     print('Invalid Sender')
+#
+# else:
+#     print('Not Spam')
+#
