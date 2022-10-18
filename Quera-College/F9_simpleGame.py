@@ -44,5 +44,5 @@ test = Game()
 for i in range(5000):
     test.move_ball()
     test.draw()
-    time.sleep(.001)
+    time.sleep(.00001)
     pygame.event.pump()
