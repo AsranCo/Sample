@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<title>quera</title>
+</head>
+<body dir="rtl">
+<form action="http://localhost:8080/vote" method="post">
+	<label for="name">نام کاربری</label><br/>
+	<input id="name" name="name" required/><br/>
+	<label for="email">آدرس ایمیل</label><br/>
+	<input type="email" id="email" name="email" required/><br/>
+
+
+	<span>از چه سرویس‌هایی استفاده کردید؟</span>
+	<input type="checkbox" id="sauna" name="services" value="sauna"/>
+	<label for="sauna">JavaScript</label>
+	<input type="checkbox" id="jacuzzi" name="services" value="jacuzzi"/>
+	<label for="jacuzzi">PHP</label>
+	<input type="checkbox" id="pool" name="services" value="pool"/>
+	<label for="pool">Python</label>
+
+
+	<br/><br/>
+	<span>آیا از کیفیت سرویس ارائه شده راضی بودید؟</span>
+
+	<input type="radio" id="yes" name="satisfaction" value="yes"/>
+	<label for="yes">پیشرفته</label>
+	<input type="radio" id="no" name="satisfaction" value="no"/>
+	<label for="no">متوسط</label><br/><br/>
+
+	<label for="branch"></label>
+	<select id="branch" name="branch">
+		<option selected disabled>انتخاب شعبه</option>
+		<option value="1">شعبه یک</option>
+		<option value="2">شعبه یک</option>
+		<option value="3">شعبه یک</option>
+		<option value="4">شعبه یک</option>
+
+	</select><br/>
+
+	<label for="score">امتیاز</label><br/>
+	<input type="number" id="score" name="score" min="1" max="5" required/>
+	<br/>
+	<button type="submit">ثبت</button>
+	<br/>
+</form>
+</body>
+</html>
