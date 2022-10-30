@@ -1,0 +1,39 @@
+    @font-face {
+        font-family: Vazir;
+        src: url("./assets/Vazir.ttf");
+    }
+
+    div {
+        font-family: Vazir, Tahoma, sans-serif;
+        width: 700px;
+        height: 800px;
+        max-width: 100%;
+        color: white;
+        padding: 15px;
+
+
+    }
+
+    .container {
+        background-image: url("./assets/logo.svg");
+        background-size: 500px;
+        /*padding: 15px;*/
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-color: #acd6e6;
+        background-position: center;
+        border-right: 10px solid #6868f0;
+    }
+
+    h1 {
+        color: rgb(29, 131, 167)
+    }
+
+    h2 {
+        margin-right: 35px;
+    }
+
+    #user-name {
+        color: #0a99cc;
+
+    }
