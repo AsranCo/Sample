@@ -1,0 +1,219 @@
+@font-face {
+  font-family: "Yekan";
+  src: url("../fonts/Yekan.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/Yekan.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Yekan.woff2") format("woff2"),
+    url("../fonts/Yekan.woff") format("woff"),
+    url("../fonts/Yekan.ttf") format("truetype");
+  /* Safari, Android, iOS */
+}
+
+* {
+  font-family: "Yekan";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+:root {
+  --color-inmind: #d2691e;
+  --color-todo: #9b2335;
+  --color-doing: #34568b;
+  --color-done: #006e51;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 2rem 4rem;
+}
+
+.row {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 25%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.title-box {
+  color: aliceblue;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+#inMind .title-box {
+  background-color: var(--color-inmind);
+}
+
+#toDo .title-box {
+  background-color: var(--color-todo);
+}
+
+#doing .title-box {
+  background-color: var(--color-doing);
+}
+
+#done .title-box {
+  background-color: var(--color-done);
+}
+
+.items-box {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+
+  overflow-y: auto;
+  max-height: 45vh;
+}
+
+.items-box.active {
+  border: 2px solid;
+}
+
+/* Custom Scrollbar */
+
+.items-box::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-right: 5px;
+}
+
+.items-box::-webkit-scrollbar {
+  width: 10px;
+}
+
+.items-box::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#inMind .items-box {
+  border-color: var(--color-inmind);
+}
+
+#toDo .items-box {
+  border-color: var(--color-todo);
+}
+
+#doing .items-box {
+  border-color: var(--color-doing);
+}
+
+#done .items-box {
+  border-color: var(--color-done);
+}
+
+.item {
+  margin: 0.3rem 0;
+  padding: 0.3rem 0.8rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.5rem;
+  text-align: right;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: scale(1.01);
+}
+
+.form-box {
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+}
+
+.btn-row {
+  display: flex;
+}
+
+.btn {
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: rgb(199, 45, 45);
+  margin-right: auto;
+  margin-left: 0.25rem;
+}
+
+#inMind .btn-add,
+#inMind .btn-save {
+  background-color: var(--color-inmind);
+}
+
+#toDo .btn-add,
+#toDo .btn-save {
+  background-color: var(--color-todo);
+}
+
+#doing .btn-add,
+#doing .btn-save {
+  background-color: var(--color-doing);
+}
+
+#done .btn-add,
+#done .btn-save {
+  background-color: var(--color-done);
+}
+
+.form {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid black;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+.form:active,
+.form:focus {
+  outline: none;
+}
+
+.hide {
+  display: none;
+}
+
+.trash {
+  background-color: red;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  left: 20px;
+  bottom: 25px;
+}
+
+.trash.active {
+  transform: scale(1.2);
+  border: 1px solid white;
+}

@@ -1,0 +1,95 @@
+const bcrypt = require('bcrypt');
+const zxcvbn = require('zxcvbn');
+
+const { getRemoteAddress } = require('../../../utils/remoteAddress');
+
+const Errors = {
+  USER_NOT_FOUND: {
+    userNotFound: 'User not found',
+  },
+  INVALID_CURRENT_PASSWORD: {
+    invalidCurrentPassword: 'Invalid current password',
+  },
+};
+
+module.exports = {
+  inputs: {
+    id: {
+      type: 'string',
+      regex: /^[0-9]+$/,
+      required: true,
+    },
+    password: {
+      type: 'string',
+      custom: (value) => zxcvbn(value).score >= 2, // TODO: move to config
+      required: true,
+    },
+    currentPassword: {
+      type: 'string',
+      isNotEmptyString: true,
+    },
+  },
+
+  exits: {
+    userNotFound: {
+      responseType: 'notFound',
+    },
+    invalidCurrentPassword: {
+      responseType: 'forbidden',
+    },
+  },
+
+  async fn(inputs) {
+    const { currentUser } = this.req;
+
+    if (inputs.id === currentUser.id) {
+      if (!inputs.currentPassword) {
+        throw Errors.INVALID_CURRENT_PASSWORD;
+      }
+    } else if (!currentUser.isAdmin) {
+      throw Errors.USER_NOT_FOUND; // Forbidden
+    }
+
+    let user = await sails.helpers.users.getOne(inputs.id);
+
+    if (!user) {
+      throw Errors.USER_NOT_FOUND;
+    }
+
+    if (
+      inputs.id === currentUser.id &&
+      !bcrypt.compareSync(inputs.currentPassword, user.password)
+    ) {
+      throw Errors.INVALID_CURRENT_PASSWORD;
+    }
+
+    const values = _.pick(inputs, ['password']);
+    user = await sails.helpers.users.updateOne(user, values, currentUser, this.req);
+
+    if (!user) {
+      throw Errors.USER_NOT_FOUND;
+    }
+
+    if (user.id === currentUser.id) {
+      const accessToken = sails.helpers.utils.createToken(user.id, user.passwordUpdatedAt);
+
+      await Session.create({
+        accessToken,
+        userId: user.id,
+        remoteAddress: getRemoteAddress(this.req),
+        userAgent: this.req.headers['user-agent'],
+      });
+
+      return {
+        item: user,
+        included: {
+          accessTokens: [accessToken],
+        },
+      };
+    }
+
+    return {
+      item: user,
+    };
+  },
+};

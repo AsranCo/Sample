@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='kanban.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='fullcalendar.min.css') }}" rel='stylesheet' />
+    <link href="{{ url_for('static', filename='fullcalendar.print.css') }}" rel='stylesheet' media='print' />
+    <script src="{{ url_for('static', filename='lib/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='fullcalendar.min.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script>
+
+    $(document).ready(function() {
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month'
+            },
+            defaultDate: '2019-03-01',
+            editable: true,
+            eventLimit: true,
+            events: {
+                url: 'data',
+                error: function() {
+                    $('#script-warning').show();
+                }
+            },
+            eventDrop: function(event, delta, revertFunc) {
+                if (!confirm("Do you want to reschedule " + event.title + " to " + event.start.format('YYYY-MM-DD') + "?")) {
+                    revertFunc();
+                }
+                else{
+                    $.ajax({
+                      type : 'POST',
+                      url : '/update_date/' + event.id + '/' + event.start.format('YYYY-MM-DD')
+                    });
+                }
+            }
+        });
+
+    });
+
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+    #calendar {
+        max-width: 63vw;
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+    .fc-time{
+       display : none;
+    }
+</style>
+</head>
+    <body>
+        <div>
+            <div style="width: 100%; margin-top: 10px;">
+                <div id="rightPanel">
+                    <div id='calendar'></div>
+                    <div style="text-align: center; margin: 10px auto;">
+                        <a href="{{url_for('form')}}" class="btn btn-warning btn-lg addtask-button">Index</a>
+                    </div>
+            </div>
+                </div>
+        </div>
+    </body>
+</html>
