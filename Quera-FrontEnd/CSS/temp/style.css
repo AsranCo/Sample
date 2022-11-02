@@ -1,11 +1,10 @@
 @font-face {
-    font-family: 'yekan';
+    font-family: 'Vazir';
     font-style: normal;
     font-weight: normal;
     font-display: fallback;
-    src: url('./Yekan.ttf') format('truetype');
+    src: url("./Vazir.ttf");
 }
-
 
 body {
     -webkit-font-smoothing: antialiased;
@@ -121,8 +120,9 @@ h1 {
 #main,
 .content,
 article {
-    color: green;
+    color: #00ff22;
 }
+
 li li {
     list-style-type: circle;
 }
@@ -134,11 +134,12 @@ span {
 div > span {
     background-color: #9f9fe1;
 }
+
 button:hover {
     color: #ce334f;
 }
 
 p::first-line {
-    color: #00ff22;
+    color: #000000;
     text-transform: uppercase;
 }
