@@ -2,12 +2,15 @@
     font-family: Vazir;
     src: url("./assets/Vazir.ttf");
 }
+
 * {
     font-family: Vazir;
 }
+
 body {
     margin: 0;
 }
+
 nav {
     background-color: #0a99cc;
 }
@@ -21,6 +24,7 @@ li {
     align-items: center;
     padding-right: 15px;
 }
+
 ul {
     all: initial;
     list-style: none;
