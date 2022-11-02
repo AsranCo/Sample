@@ -1,6 +1,7 @@
 import requests
 
 
+
 def process(url):
     response = requests.get(url)
 

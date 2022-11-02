@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Vazir;
+    src: url("./assets/Vazir.ttf");
+}
+
+* {
+    font-family: Vazir, serif;
+}
+
+tbody tr:hover {
+    background-color: #e7e7e7;
+}
+
+th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 0 10px;
+    border-collapse: collapse;
+
+}
+
+table, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    margin: auto auto
+}
+
+table {
+    border-collapse: collapse;
+    width: 800px;
+    max-width: 100%;
+
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+/*todo ولی یا همون بالایی مقدار مطلق میده میگه باید 800 تا باشه اندازش و
+   میگه بیشترین مقدارش اندازه 100 درصد کل صفحه باشه حالا پایینی
+    میاد میگه مقدار عرض اول اندازه کل صفحه باشه و بیشتر از 800 px نشه*/
+/*table {*/
+/*  width: 800px;*/
+/*  max-width: 100%;*/
+/*}*/
+/**/
+/*table {*/
+/*  width: 100%;*/
+/*  max-width: 800px;*/
+/*}*/

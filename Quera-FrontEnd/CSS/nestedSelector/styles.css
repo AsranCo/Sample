@@ -1,0 +1,23 @@
+
+
+
+div#container p {
+    color: indigo !important;
+}
+
+div ~ p {
+    color: indianred !important;
+    text-transform: capitalize;
+    text-shadow: #000000;
+}
+
+#text_align {
+
+    height: 400px;
+    background-color: teal;
+    text-align: center;
+    vertical-align: bottom;
+    text-shadow: red;
+    hover: red;
+
+}

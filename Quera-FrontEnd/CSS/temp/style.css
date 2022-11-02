@@ -1,0 +1,145 @@
+@font-face {
+    font-family: 'Vazir';
+    font-style: normal;
+    font-weight: normal;
+    font-display: fallback;
+    src: url("./Vazir.ttf");
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    direction: rtl;
+    font-size: 1.1rem;
+    text-align: center;
+    /*font-family: "homa", Tahoma;*/
+}
+
+/*انواع سلکتورها */
+h1 {
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+}
+
+.paragraph {
+    text-align: center;
+    color: #cf165d;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#paragraph-1 {
+    text-align: center;
+    color: #169ecf;
+}
+
+.background-opacity-60 {
+    background-color: rgb(20, 158, 207);
+    opacity: 0.6;
+
+}
+
+.background-opacity-30 {
+    background-color: rgba(20, 158, 207, 0.3);
+}
+
+.background-img {
+    background-image: url("https://quera.ir/qbox/view/vmLhQALHqj/logo-q.0-3aee17faf53e%20(1)%20(1).svg");
+    height: 27px;
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.border-style-1 {
+    border: 1px solid black;
+}
+
+.border-style-2 {
+    border-bottom: 1px solid red;
+}
+
+.border-style-3 {
+    border: 1px solid gray;
+    border-radius: 16px;
+}
+
+.border-style-4 {
+    background-color: #dcfdfe;
+    border-left: 6px solid #2196F3;
+}
+
+.dotted {
+    border-style: dotted;
+}
+
+.dashed {
+    border-style: dashed;
+}
+
+.solid {
+    border-style: solid;
+}
+
+.double {
+    border-style: double;
+}
+
+.groove {
+    border-style: groove;
+}
+
+.ridge {
+    border-style: ridge;
+}
+
+.inset {
+    border-style: inset;
+}
+
+.outset {
+    border-style: outset;
+}
+
+.none {
+    border-style: none;
+}
+
+.hidden {
+    border-style: hidden;
+}
+
+.middle {
+    border-style: solid;
+    border-width: 8px;
+    border-color: red;
+}
+
+#main,
+.content,
+article {
+    color: #00ff22;
+}
+
+li li {
+    list-style-type: circle;
+}
+
+span {
+    background-color: white;
+}
+
+div > span {
+    background-color: #9f9fe1;
+}
+
+button:hover {
+    color: #ce334f;
+}
+
+p::first-line {
+    color: #000000;
+    text-transform: uppercase;
+}

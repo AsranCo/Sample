@@ -5,12 +5,16 @@ def decorator(validator):
                 return func(args, *kwargs)
             else:
                 return "error"
+
         return ret
+
     return type_checker
+
 
 @decorator(int)
 def f(x):
-    return 21+x
+    return 21 + x
+
 
 @decorator(type("salam"))
 def g(x):
