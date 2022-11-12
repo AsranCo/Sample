@@ -61,3 +61,13 @@ li.hover::after {
         height: 3px;
     }
 }
+
+/*Add these styles to li in desktop mode*/
+/*width: 100px;*/
+/*justify-content: center;*/
+/*padding-right: 0;*/
+
+/*Add these styles to .hover element with after pseudo-class in desktop mode*/
+
+/**!*/
+

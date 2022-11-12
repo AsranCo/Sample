@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Components #1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="assets/jquery-3.5.1.slim.min.js"></script>
+	<!--	<link rel="stylesheet" href="assets/bootstrap.min.css">-->
+	<!--	<script src="assets/bootstrap.min.js"></script>-->
+
+	<!-- version 4.5-->
+	<link rel="stylesheet" href="faq/assets/bootstrap.min.css">
+	<script src="faq/assets/bootstrap.min.js"></script>
+
+
+
+
+</head>
+<body class="bg-light">
+
+
+<!--toast-->
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+	<div class="toast-header">
+		<img src="..." class="rounded mr-2" alt="...">
+		<strong class="mr-auto">Bootstrap</strong>
+		<small>11 mins ago</small>
+		<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+			<span aria-hidden="false">&times;</span>
+		</button>
+	</div>
+	<div class="toast-body">
+		Hello, world! This is a toast message.
+	</div>
+</div>
+
+
+
+<!--NAV bar-->
+<div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+		        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggle-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+					   data-toggle="dropdown"
+					   aria-haspopup="true" aria-expanded="false">
+						Dropdown
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
+</div>
+
+<!--modal-->
+<div>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+		Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+	     aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--Alerts-->
+<div class="container text-center">
+	<h1 class="text-center my-5">کامپوننت های مهم در لینک زیر</h1>
+	<h1 class="text-center my-5">https://quera.org/college/6092/chapter/19718/lesson/63424/?comments_page=1&comments_filter=ALL</h1>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-primary col-4" role="alert" alig>
+			This is a primary alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-secondary col-4" role="alert">
+			This is a secondary alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-success col-4" role="alert">
+			This is a success alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-danger col-4" role="alert">
+			This is a danger alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-warning col-4" role="alert">
+			This is a warning alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-info col-4" role="alert">
+			This is a info alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-light col-4" role="alert">
+			This is a light alert—check it out!
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="alert alert-dark col-4" role="alert">
+			This is a dark alert—check it out!
+		</div>
+	</div>
+</div>
+<hr>
+<!--Collapse-->
+<div class="container">
+	<h1 class="text-center my-5"> Collapse </h1>
+	<div class="row my-5">
+		<h3 class="text-center my-3">Simple</h3>
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="accordion" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Accordion Item #1
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+					     data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<strong>This is the first item's accordion body.</strong> It is hidden by default, until the
+							collapse plugin adds the appropriate classes that we use to style each element. These
+							classes control the overall appearance, as well as the showing and hiding via CSS
+							transitions. You can modify any of this with custom CSS or overriding our default variables.
+							It's also worth noting that just about any HTML can go within the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Accordion Item #2
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+					     data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<strong>This is the second item's accordion body.</strong> It is hidden by default, until
+							the collapse plugin adds the appropriate classes that we use to style each element. These
+							classes control the overall appearance, as well as the showing and hiding via CSS
+							transitions. You can modify any of this with custom CSS or overriding our default variables.
+							It's also worth noting that just about any HTML can go within the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Accordion Item #3
+						</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+					     data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+							collapse plugin adds the appropriate classes that we use to style each element. These
+							classes control the overall appearance, as well as the showing and hiding via CSS
+							transitions. You can modify any of this with custom CSS or overriding our default variables.
+							It's also worth noting that just about any HTML can go within the
+							<code>.accordion-body</code>, though the transition does limit overflow.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row my-5">
+		<h3 class="text-center my-3">Flush</h3>
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="accordion accordion-flush" id="accordionFlushExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingOne">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#flush-collapseOne" aria-expanded="false"
+						        aria-controls="flush-collapseOne">
+							Accordion Item #1
+						</button>
+					</h2>
+					<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+					     data-bs-parent="#accordionFlushExample">
+						<div class="accordion-body">Placeholder content for this accordion, which is intended to
+							demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
+							body.
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+						        aria-controls="flush-collapseTwo">
+							Accordion Item #2
+						</button>
+					</h2>
+					<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+					     data-bs-parent="#accordionFlushExample">
+						<div class="accordion-body">Placeholder content for this accordion, which is intended to
+							demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
+							body. Let's imagine this being filled with some actual content.
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+						        data-bs-target="#flush-collapseThree" aria-expanded="false"
+						        aria-controls="flush-collapseThree">
+							Accordion Item #3
+						</button>
+					</h2>
+					<div id="flush-collapseThree" class="accordion-collapse collapse"
+					     aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+						<div class="accordion-body">Placeholder content for this accordion, which is intended to
+							demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+							body. Nothing more exciting happening here in terms of content, but just filling up the
+							space to make it look, at least at first glance, a bit more representative of how this would
+							look in a real-world application.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+		        aria-haspopup="true" aria-expanded="false">
+			Dropdown
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+			<button class="dropdown-item" type="button">Action</button>
+			<button class="dropdown-item" type="button">Another action</button>
+			<button class="dropdown-item" type="button">Something else here</button>
+		</div>
+	</div>
+
+
+	<br>
+	<br>
+	<br>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+		Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+	     aria-labelledby="exampleModalCenterTitle"
+	     aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+</body>
+</html>
