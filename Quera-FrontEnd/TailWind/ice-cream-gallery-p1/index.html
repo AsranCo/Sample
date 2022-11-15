@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="tailwind.js"></script>
+	<script>
+        try {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            vazir: "'Vazir', sans-serif",
+                        },
+                    },
+                },
+            };
+        } catch {
+        }
+	</script>
+	<style type="text/tailwindcss">
+        @layer base {
+            @font-face {
+                font-family: "Vazir";
+                font-weight: normal;
+                src: url("./fonts/Vazir.ttf");
+            }
+
+            @font-face {
+                font-family: "Vazir";
+                font-weight: bold;
+                src: url("./fonts/Vazir-Bold.ttf");
+            }
+        }
+
+        @layer utilities {
+            .max-width-wrapper {
+                @apply mx-auto max-w-5xl px-4;
+            }
+
+            .primary-gradient {
+                @apply bg-gradient-to-l from-pink-500 via-red-500 to-yellow-500;
+            }
+        }
+	</style>
+</head>
+<body class="font-vazir bg-gray-400 min-h-[1000px]">
+<div class="h-2 primary-gradient" id="super-header"></div>
+<header class="sticky top-0 z-10 bg-white/50" id="header">
+	<div
+			class="max-width-wrapper py-4 flex justify-between"
+			id="header-inner-wrapper"
+	>
+		<nav>
+			<h1
+					class="
+							border-y-2 border-dotted border-black
+							font-bold
+							text-gray-800
+						"
+					id="heading"
+			>
+				<a href="#">گالری&nbsp;بستنی</a>
+			</h1>
+		</nav>
+		<div class="relative mr-4" id="search-wrapper">
+			<img
+					src="images/search.svg"
+					class="absolute left-4 top-1.5 h-4"
+					id="search-icon"
+			/>
+			<input
+					type="text"
+					placeholder="قیفی"
+					class="
+							w-full
+							outline-none
+							rounded-full
+							border border-gray-400
+							py-1
+							px-4
+							text-sm text-gray-700
+						"
+					id="search-input"
+			/>
+		</div>
+	</div>
+</header>
+</body>
+</html>
