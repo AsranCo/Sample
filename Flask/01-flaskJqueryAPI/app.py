@@ -7,13 +7,13 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api/say_name', methods=['POST'])
+@app.route('/api/say_name', methods=['GET'])
 def say_name():
     json = request.get_json()
     print(json)
     first_name = json['first_name']
     last_name = json['last_name']
-    return jsonify(first_name=first_name+str("!!!!!"), last_name=last_name)
+    return jsonify(first_name=str(" Hello ")+first_name, last_name=last_name)
 
 
 if __name__ == '__main__':
