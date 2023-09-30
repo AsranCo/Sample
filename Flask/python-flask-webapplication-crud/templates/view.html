@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>User Registration System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+  <body>
+  	<div class="container">
+  		<h2 id="registerEmp">Register New Employee</h2>
+  		<h2 hidden id="updateEmployee">Update Employee</h2>
+    <form id="actionForm"name="actionForm"method="POST" action="/add">
+    	 <div class="col-xs-4">
+	  ID:
+      <input  onkeypress="return isNumber(event)" class="form-control" type="text" name="id">
+    </div>
+     <div class="col-xs-4">
+	  User Name
+	  <input  class="form-control" type="text" name="uname">
+	</div>
+	 <div class="col-xs-4">
+	  Email
+	  <input  class="form-control" type="text" name="email">
+	</div>
+	  <div class="col-xs-4">
+	  Salary
+	  <input  onkeypress="return isNumber(event)" class="form-control" type="text" name="salary">
+	</div>
+   </br></br></br></br></br></br>
+      <center><input id="add-emp"class="btn btn-primary" type="submit" value="Register">
+      	<input style="display:none" id="update-user" class="btn btn-primary" type="submit" value="Update">
+      </center>
+    </form>
+    <h2>List of Registered Employee</h2>
+    <table class="table">
+    	<thead>
+    <tr>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for item in datas %}
+<tr>
+    <td>{{ item.uname}}</td>
+    <td>{{ item.email}}</td>
+    <td>{{ item.salary}}</td>
+    <td><input class="btn btn-warning" type="submit" value="Edit" 
+    	onclick="update('{{ item.id}}','{{ item.uname}}','{{ item.email}}','{{ item.salary}}')"></td>
+    <td> <form method="POST" action="/deleteEmployee">
+        <input type="text" hidden value="{{item.id}}" name="id"> 
+    	<input  class="btn btn-danger" type="submit" value="Delete"></form></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div></div>
+  </body>
+  <script>
+  	function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+function update(id,name,email,salary) {
+   document.getElementById("add-emp").style.display = "none"
+   document.getElementById("registerEmp").style.display = "none"
+   document.getElementById("update-user").style.display = "block"
+   document.getElementById("updateEmployee").style.display = "block"
+   document.getElementsByName('id')[0].value = id;
+   document.getElementsByName('uname')[0].value = name;
+   document.getElementsByName('email')[0].value = email;
+   document.getElementsByName('salary')[0].value = salary;
+   document.getElementById('actionForm').action = "/employeeUpdate";
+}
+
+  </script>
+</html>

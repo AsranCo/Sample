@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/Python-Flask-Auth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/YoutubeWebVideoDownloadApp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/filebrowser" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/flask-crud" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/todo-flask" vcs="Git" />
   </component>
 </project>
