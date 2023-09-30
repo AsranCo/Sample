@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+<title>Download</title>
+</head>
+<body style="background-color:#000000;">
+<center>
+			<header style="color:#FFFFFF;">
+				<h1>Free Youtube Downloader</h1>
+				<p>Now you can download any video from youtube with a single click <br /></p>
+			</header>
+            </center>
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="thumbnail">
+          <img src="{{ data['thumb'] }}" alt="...">
+            <div class="caption">
+            <center><h4>{{ data['title'] }}</h4></center>
+            <p><div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Download Video
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        {% block content %}
+        {% for a in data['arrr'] %}
+        <li><a href="{{ a.url }}" download="{{ data['title'] }}">{{ a.resolution }} {{ a.extension }}</a></li>
+        {% endfor %}
+        {% endblock %}
+    </ul>
+           </div></p>
+           </div>
+    </div>
+  </div>
+</div>  
+</body>
+</html>
+

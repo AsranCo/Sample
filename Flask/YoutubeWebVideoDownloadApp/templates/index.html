@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Youtube Downloader</title>
+		<meta charset="utf-8" />
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+	</head>
+	<body>
+		<center>
+			<header id="header">
+				<h1>Free Youtube Downloader</h1>
+				<p>Fast. Free. Secure.<br /></p>
+			</header>
+            </center>
+			<form id="signup-form" method="POST" action="{{ url_for('download') }}">
+				<input type="text" name="url" id="email" placeholder="Enter youtube url" style="width:100%;" />
+				<input type="submit" value="Download" />
+			</form>
+	</body>
+</html>
