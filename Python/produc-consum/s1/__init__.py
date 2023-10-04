@@ -5,44 +5,45 @@ import random
 import queue
 
 logging.basicConfig(level=logging.DEBUG,
-                    format='(%(threadName)-9s) %(message)s',)
+                    format='(%(threadName)-9s) %(message)s', )
 
 BUF_SIZE = 10
 q = queue.Queue(BUF_SIZE)
 
+
 class ProducerThread(threading.Thread):
     def __init__(self, group=None, target=None, name=None,
                  args=(), kwargs=None, verbose=None):
-        super(ProducerThread,self).__init__()
+        super(ProducerThread, self).__init__()
         self.target = target
         self.name = name
 
     def run(self):
-        while True:
+        for i in range(5):
             if not q.full():
-                item = random.randint(1,10)
-                q.put(item)
-                logging.debug('Putting ' + str(item)
+                q.put(i)
+                logging.debug('Putting ' + str(i)
                               + ' : ' + str(q.qsize()) + ' items in queue')
                 time.sleep(random.random())
-        return
+        logging.debug("Putting items in queue finish!")
+
 
 class ConsumerThread(threading.Thread):
     def __init__(self, group=None, target=None, name=None,
                  args=(), kwargs=None, verbose=None):
-        super(ConsumerThread,self).__init__()
+        super(ConsumerThread, self).__init__()
         self.target = target
         self.name = name
         return
 
     def run(self):
-        while True:
-            if not q.empty():
+        while not q.empty():
                 item = q.get()
                 logging.debug('Getting ' + str(item)
                               + ' : ' + str(q.qsize()) + ' items in queue')
                 time.sleep(random.random())
-        return
+        logging.debug("Queue in empty!")
+
 
 if __name__ == '__main__':
 
@@ -50,6 +51,6 @@ if __name__ == '__main__':
     c = ConsumerThread(name='consumer')
 
     p.start()
-    time.sleep(2)
+    time.sleep(4)
     c.start()
     time.sleep(2)

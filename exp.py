@@ -1,21 +1,16 @@
 import requests
 
 
-
 def process(url):
     response = requests.get(url)
-
     if (response.status_code != 200):
         return 'Bad Query'
-
     books = response.json()
-
     categories = list()
     for book in books:
         category = book['category']
         if category not in categories:
             categories.append(category)
-
     if len(categories) == 1:
         return categories[0]
 
