@@ -1,0 +1,8 @@
+
+ CREATE TABLE IF NOT EXISTS `employee` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `uname` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `salary` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2343 ;

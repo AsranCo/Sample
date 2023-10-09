@@ -7,7 +7,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api/say_name', methods=['GET'])
+@app.route('/api/say_name', methods=['POST'])
 def say_name():
     json = request.get_json()
     print(json)

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
-from crud.models import Pessoa
+import Pe
+# from crud.models import Pessoa
 
 main = Blueprint('main', __name__, template_folder='templates', static_folder='static')
 

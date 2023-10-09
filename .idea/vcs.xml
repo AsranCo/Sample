@@ -2,5 +2,14 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/Cogen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/Flask-User-Authentication" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/Flask-inline-editing-with-mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/PyThonFlaskjQueryAJAX" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/ajax-flask-demo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/basic-flask-mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/flask" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/flask-ajax-table" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Flask/flask-login" vcs="Git" />
   </component>
 </project>
